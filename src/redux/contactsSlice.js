@@ -4,9 +4,9 @@ import { nanoid } from 'nanoid';
 
 const contactsSlice = createSlice({
   name: 'contacts',
-  initialState: [  {id: 'id-2', name: 'Hermione Kline', number: '443-89-12'},
-  {id: 'id-3', name: 'Eden Clements', number: '645-17-79'},
-  {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},],
+  initialState: [  {id: 'id-2', name: 'Lionell Ronaldo', number: '093-93-22-454'},
+  {id: 'id-3', name: 'Cristiano Messi', number: '067-23-76-229'},
+  {id: 'id-4', name: 'Menaldo Crinell', number: '099-54-93-234'},],
   reducers: {
     addContact: {
       reducer(state, action) {
