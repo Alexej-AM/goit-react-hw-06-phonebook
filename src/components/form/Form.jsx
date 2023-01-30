@@ -19,13 +19,17 @@ const Form = () => {
   const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
-    const {name, value} = e.currentTarget;  
+    // const target = e.target.type;
+    // const val = e.target.value;
+    const {value, name} = e.target;  
     
     switch(name) {
       case "number":
-        return setNumber(value); 
+        setNumber(value); 
+        break;
       case "name":
-        return setName(value); 
+        setName(value); 
+        break;
       default:
       return;
     }
@@ -34,21 +38,23 @@ const Form = () => {
   
   const chekingContacts = () => {
     const findContact = contacts.find((contact) => contact.name === name);
-    const findNumber = contacts.find((contact) => contact.number === number);
 
     if (findContact) { 
       alert(`${name} is already in contacts`);      
     } 
-      else if (findNumber) { 
-      alert(`${number} is already in contacts`);      
+      else { 
+      alert(`${name} has been added`);
+      return (dispatch(addContact(name, number)))      
     }             
   };
 
 
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    chekingContacts()
-    dispatch(addContact(name, number));
+    chekingContacts();
+    
     setName('');
     setNumber('');
       };
@@ -56,7 +62,7 @@ const Form = () => {
 
   return(
     <FormBox>
-      <form onSubmit={handleSubmit}>
+      <form action="" onSubmit={handleSubmit}>
         <LabelBox>Name
           <InputBox
             type="text"
